@@ -1,4 +1,4 @@
-import { db, isConfigured } from './supabase-client.js';
+import { db, isConfigured } from './supabase-client.js?v=3';
 
 const $=s=>document.querySelector(s);const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(n||0));const esc=v=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 let quotes=[];let selectedId=null;
