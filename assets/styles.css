@@ -13,3 +13,6 @@
 .modal-card .primary{display:block;text-decoration:none;text-align:center;margin-bottom:9px}
 @media(max-width:1000px){.main-nav .owner-link{display:inline-flex}}
 @media(max-width:760px){.site-header{padding:8px 10px}.site-header .brand img{width:142px;height:46px}.main-nav{gap:7px}.main-nav .owner-link{display:inline-flex;font-size:.72rem}.main-nav .nav-cta{padding:8px 9px;font-size:.72rem}}
+
+/* Keep the active quote step in view beneath the sticky header. */
+.estimator-card{scroll-margin-top:105px}

@@ -12,8 +12,13 @@ function recalc(){
 function toggleLine(line,cost,value){$(line).hidden=value<=0;$(cost).textContent=money(value)}
 function renderStep(){ $$('.step').forEach(x=>x.classList.toggle('active',Number(x.dataset.step)===state.step));$('#step-number').textContent=state.step;$('#progress-fill').style.width=(state.step*25)+'%';$('#back-btn').hidden=state.step===1;$('#next-btn').hidden=state.step===4;const titles=['','Where is the project?','Tell us about the home','Choose your gutter system','Schedule and reserve'];$('#step-title').textContent=titles[state.step];if(state.step===2&&$('input[name="service"]:checked').value==='Replace existing')$('#removal').checked=true;recalc();}
 
-$('#next-btn').addEventListener('click',()=>{if(state.step===1&&(!$('#address').value.trim()||!$('#city').value)){alert('Add the project address and nearest service area to continue.');return}state.step=Math.min(4,state.step+1);renderStep();window.scrollTo({top:85,behavior:'smooth'})});
-$('#back-btn').addEventListener('click',()=>{state.step=Math.max(1,state.step-1);renderStep()});
+function keepEstimatorInView(){
+  const card=$('.estimator-card');
+  if(card) card.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+$('#next-btn').addEventListener('click',()=>{if(state.step===1&&(!$('#address').value.trim()||!$('#city').value)){alert('Add the project address and nearest service area to continue.');return}state.step=Math.min(4,state.step+1);renderStep();requestAnimationFrame(keepEstimatorInView)});
+$('#back-btn').addEventListener('click',()=>{state.step=Math.max(1,state.step-1);renderStep();requestAnimationFrame(keepEstimatorInView)});
 ['#feet','#stories','#guards','#removal','#downspouts'].forEach(id=>$(id).addEventListener('input',recalc));$$('input[name="size"]').forEach(x=>x.addEventListener('change',recalc));
 $$('input[name="service"]').forEach(x=>x.addEventListener('change',()=>{if(x.checked&&x.value==='Replace existing')$('#removal').checked=true;recalc()}));
 
