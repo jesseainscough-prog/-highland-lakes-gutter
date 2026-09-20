@@ -1,30 +1,26 @@
 # Highland Lakes Seamless Rain Gutter
 
-Website and quote-tool prototype for Highland Lakes Seamless Rain Gutter.
+Operational website package with online estimates, secure owner login, saved customer requests, scheduling, crew planning, and Stripe Checkout deposits.
 
-## Upload to GitHub
+## Main files
 
-1. Extract the ZIP file on your computer.
-2. Open the GitHub repository.
-3. Choose **Add file** > **Upload files**.
-4. Upload `index.html`, `README.md`, and the complete `assets` folder.
-5. Commit the changes to the `main` branch.
+- `index.html` — public website and estimator
+- `owner.html` — password-protected owner portal
+- `pay.html` — customer deposit page
+- `config.js` — public Supabase connection values
+- `supabase/migrations/` — database schema and security policies
+- `supabase/functions/` — Stripe Checkout and webhook functions
+- `SETUP.md` — complete launch instructions
 
-Keep the `assets` folder and its contents together. The website will not display correctly if those files are moved.
-
-## Turn on GitHub Pages
-
-1. In the repository, open **Settings** > **Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select the `main` branch and `/ (root)` folder.
-4. Choose **Save**.
-
-GitHub will display the public website address after the deployment finishes.
-
-## Current prototype pricing
+## Pricing currently configured
 
 - 6-inch seamless gutter: $12 per linear foot
 - 7-inch seamless gutter: $22 per linear foot
+- Gutter guards: $11 per linear foot (placeholder; confirm before launch)
+- Removal and haul-off: $2.50 per linear foot (placeholder; confirm before launch)
+- Downspouts: $120 each (placeholder; confirm before launch)
 - Deposit: 50%
 
-This is a front-end prototype. Quote requests, scheduling, and payments are demonstrations and are not yet connected to a live database or payment processor.
+The database calculates pricing independently of the browser so visitors cannot alter totals by changing browser code.
+
+Read `SETUP.md` before replacing the existing GitHub Pages files.
