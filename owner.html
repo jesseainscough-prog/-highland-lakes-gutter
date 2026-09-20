@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10283b">
   <title>Owner Portal | Highland Lakes Seamless Rain Gutter</title>
-  <link rel="stylesheet" href="assets/styles.css?v=3"><link rel="stylesheet" href="assets/owner.css?v=3">
+  <link rel="stylesheet" href="assets/styles.css?v=4"><link rel="stylesheet" href="assets/owner.css?v=4">
 </head>
 <body class="portal-body">
   <header class="portal-header"><a href="index.html"><img src="assets/highland-lakes-logo.png" alt="Highland Lakes Seamless Rain Gutter"></a><div><span id="owner-email"></span><button id="sign-out" class="secondary small" hidden>Sign out</button></div></header>
@@ -13,7 +13,7 @@
     <section id="recovery-panel" class="auth-shell" hidden><form id="recovery-form" class="auth-card"><p class="eyebrow">Owner security</p><h1>Choose a new password</h1><label>New password<input id="new-password" type="password" minlength="10" autocomplete="new-password" required></label><label>Confirm password<input id="confirm-password" type="password" minlength="10" autocomplete="new-password" required></label><button class="primary full" type="submit">Update password</button><p id="recovery-message" class="form-message" aria-live="polite"></p></form></section>
     <section id="portal" class="owner-portal" hidden>
       <div class="portal-title"><div><p class="eyebrow">Owner workspace</p><h1>Jobs and estimates</h1></div><a class="primary" href="index.html#estimate">+ New phone quote</a></div>
-      <div class="metric-grid" id="metrics"><article><span>Open estimates</span><strong id="metric-open">0</strong><small>Awaiting action</small></article><article><span>Deposits collected</span><strong id="metric-deposits">$0</strong><small>Stripe payments</small></article><article><span>Scheduled footage</span><strong id="metric-feet">0 ft</strong><small>Active jobs</small></article><article><span>Jobs reserved</span><strong id="metric-jobs">0</strong><small>Deposit received</small></article></div>
+      <div class="metric-grid" id="metrics"><article><span>Open estimates</span><strong id="metric-open">0</strong><small>Awaiting action</small></article><article><span>Payments collected</span><strong id="metric-deposits">$0</strong><small>Card, cash, and check</small></article><article><span>Scheduled footage</span><strong id="metric-feet">0 ft</strong><small>Active jobs</small></article><article><span>Jobs reserved</span><strong id="metric-jobs">0</strong><small>Deposit received</small></article></div>
       <div class="portal-toolbar"><label>Filter<select id="status-filter"><option value="all">All records</option><option value="new">New requests</option><option value="quoted">Quoted</option><option value="deposit_pending">Deposit pending</option><option value="scheduled">Scheduled</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option></select></label><button id="refresh" class="secondary">Refresh</button></div>
       <div class="owner-grid">
         <section class="panel jobs-panel"><div class="panel-head"><div><span>PIPELINE</span><h2>Customer requests</h2></div></div><div id="job-list" class="job-list"><p class="empty-state">Loading…</p></div></section>
@@ -21,6 +21,13 @@
       </div>
     </section>
   </main>
-  <script type="module" src="assets/owner.js?v=3"></script>
+  <div id="owner-modal" class="owner-modal" role="dialog" aria-modal="true" aria-labelledby="owner-modal-title" hidden>
+    <section class="owner-modal-card">
+      <button type="button" class="modal-close" data-close-modal aria-label="Close">×</button>
+      <div id="owner-modal-content"></div>
+      <p id="owner-modal-message" class="form-message" aria-live="polite"></p>
+    </section>
+  </div>
+  <script type="module" src="assets/owner.js?v=4"></script>
 </body>
 </html>
